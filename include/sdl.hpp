@@ -3,6 +3,10 @@
 
 #include <SDL3/SDL.h>
 #include <types.h>
+#include <string>
+
+using std::string;
+
 
 namespace sdl {
 
@@ -12,10 +16,16 @@ namespace sdl {
 template<typename... Args>
 constexpr u32 init_flags(Args... args);
 
+struct appMetadata {
+    string name, version, identifier, creator, copyright, url, type;
+};
 
 class SDL
 {
-    SDL(u32 flags);
+public:
+    appMetadata metadata;
+
+    SDL(u32 flags, appMetadata metadata);
     ~SDL();
 };
 

@@ -7,8 +7,14 @@ namespace sdl {
 namespace _util {
 
     constexpr u32 parse_init_flag(std::string_view flag) {
-        if (flag == "fullscreen") return SDL_WINDOW_FULLSCREEN;
-        if (flag == "opengl")     return SDL_WINDOW_OPENGL;
+        if (flag == "audio")    return SDL_INIT_AUDIO;
+        if (flag == "video")    return SDL_INIT_VIDEO;
+        if (flag == "haptic")   return SDL_INIT_HAPTIC;
+        if (flag == "gamepad")  return SDL_INIT_GAMEPAD;
+        if (flag == "joystick") return SDL_INIT_JOYSTICK;
+        if (flag == "events")   return SDL_INIT_EVENTS;
+        if (flag == "sensor")   return SDL_INIT_SENSOR;
+        if (flag == "camera")   return SDL_INIT_CAMERA;
 
         throw std::invalid_argument("Unknown flag name provided!");
     }
